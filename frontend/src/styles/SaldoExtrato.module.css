@@ -1,0 +1,116 @@
+/* src/styles/SaldoExtrato.module.css */
+.container {
+  padding: 1.5rem;
+}
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--bs-border-color);
+  margin-bottom: 1rem;
+}
+.title { margin: 0; font-size: 1.25rem; font-weight: 500; }
+.periodSelector {
+  background-color: var(--bs-white);
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.resumoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--bs-border-color);
+}
+.resumoItem { text-align: center; padding: 1rem; }
+.resumoValor { font-size: 1.5rem; font-weight: 700; margin: 0 0 0.25rem 0; }
+.resumoLabel { font-size: 0.875rem; color: var(--bs-gray-700); margin: 0; }
+
+.toggleExtratoButton {
+  background: none; border: none; cursor: pointer; color: var(--bs-primary);
+  font-weight: 500; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.5rem; border-radius: var(--bs-border-radius);
+}
+.toggleExtratoButton:hover { background-color: var(--bs-primary-light); }
+.setaToggle { transition: transform 0.3s ease-in-out; }
+.setaToggle.aberto { transform: rotate(180deg); }
+
+.extratoWrapper {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s ease-in-out;
+}
+.extratoWrapper.visivel { grid-template-rows: 1fr; }
+.extratoWrapperContent { overflow: hidden; }
+
+.extratoHeader {
+  display: grid; grid-template-columns: 40px 1fr 1fr 1fr;
+  gap: 1rem; padding: 1rem 1.5rem 0.75rem 1.5rem; font-weight: 600;
+  font-size: 0.8rem; color: var(--bs-gray-700); text-transform: uppercase;
+}
+.extratoItem {
+  display: grid; grid-template-columns: 40px 1fr 1fr 1fr;
+  gap: 1rem; align-items: center; padding: 1rem 1.5rem;
+  border-top: 1px solid var(--bs-border-color); cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.extratoItem:hover { background-color: var(--bs-gray-100); }
+
+.setaDropdown { transition: transform 0.2s ease-in-out; color: var(--bs-gray-700); }
+.setaDropdown.aberto { transform: rotate(180deg); }
+
+.data { font-size: 0.9rem; }
+.movimentacao { font-weight: 500; text-align: right; }
+.movimentacao.positivo { color: var(--bs-success); }
+.movimentacao.negativo { color: var(--bs-danger); }
+.saldoDia { font-weight: 600; text-align: right; }
+
+.detalhesTransacoes {
+  padding: 1rem 1.5rem 1rem 3.5rem;
+  background-color: #fafafa;
+  border-top: 1px solid var(--bs-border-color);
+}
+.transacaoDetalheItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--bs-gray-200);
+}
+.transacaoDetalheItem:last-child { border-bottom: none; }
+
+.transacaoInfo { display: flex; align-items: center; gap: 0.75rem; }
+.transacaoData { font-size: 0.8rem; color: var(--bs-gray-700); min-width: 70px; }
+.transacaoDescricao {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+.transacaoValor { font-weight: 500; }
+.transacaoValor.positivo { color: var(--bs-success); }
+.transacaoValor.negativo { color: var(--bs-danger); }
+
+.transactionIcon {
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+.pix {
+  color: var(--bs-primary);
+}
+.ted {
+  color: #555;
+}
+
+.loading, .emptyState {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--bs-gray-700);
+}

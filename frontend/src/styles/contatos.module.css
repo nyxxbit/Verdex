@@ -1,0 +1,200 @@
+/* src/styles/contatos.module.css */
+.pageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.pageTitle {
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: var(--bs-gray-900);
+  margin: 0;
+}
+.headerActions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btnPrimary, .btnSecondary {
+  border: 1px solid transparent;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--bs-border-radius);
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btnPrimary {
+  background-color: var(--bs-primary);
+  color: white;
+}
+.btnPrimary:hover {
+  filter: brightness(0.9);
+}
+.btnSecondary {
+  background-color: var(--bs-white);
+  color: var(--bs-gray-800);
+  border-color: var(--bs-border-color);
+}
+.btnSecondary:hover {
+  background-color: var(--bs-gray-100);
+}
+
+/* --- ESTILO PROFISSIONAL PARA AS ABAS (IGUAL AO DE CONCILIAÇÃO) --- */
+.tabs {
+  display: flex;
+  gap: 1.5rem;
+  border-bottom: 1px solid var(--bs-border-color);
+  margin-bottom: 2rem;
+}
+.tab {
+  padding: 0.75rem 0.25rem;
+  font-size: 1rem;
+  color: var(--bs-gray-700);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+  background: none; /* Garante que não tenha fundo */
+  border-radius: 0; /* Remove o border-radius de botão */
+  position: relative;
+  top: 1px;
+}
+.tab:hover {
+  color: var(--bs-primary);
+}
+.tab.active {
+  color: var(--bs-primary);
+  border-bottom-color: var(--bs-primary);
+  font-weight: 500;
+}
+/* --------------------------------------------------------------- */
+
+.gridObras {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+.obraCard {
+  background-color: var(--bs-white);
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius-lg);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: var(--bs-box-shadow-sm);
+}
+.obraCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -4px rgba(0, 0, 0, 0.07);
+}
+
+.obraHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--bs-border-color);
+}
+.obraTitulo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+}
+.obraCliente {
+  font-size: 0.9rem;
+  color: var(--bs-gray-700);
+}
+.obraStatus {
+  padding: 0.25rem 0.75rem;
+  border-radius: 99px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--bs-white);
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+.statusEmAndamento {
+  background-color: var(--bs-success);
+}
+.statusPlanejamento {
+  background-color: var(--bs-warning);
+  color: var(--bs-gray-900);
+}
+.statusConcluida {
+  background-color: var(--bs-gray-700);
+}
+
+.obraDetalhes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--bs-gray-800);
+}
+.detalheItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.detalheItem svg {
+  color: var(--bs-gray-700);
+}
+
+.funcionariosLista {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--bs-border-color);
+}
+.funcionariosLista h4 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+.funcionariosContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.funcionarioTag {
+  background-color: var(--bs-gray-200);
+  color: var(--bs-gray-800);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--bs-border-radius);
+  font-size: 0.85rem;
+}
+
+/* --- ESTILO PROFISSIONAL PARA A LISTA DE CONTATOS --- */
+.contactListContainer {
+  background-color: var(--bs-white);
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius-lg);
+  overflow: hidden;
+}
+.contactItem {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1.5rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--bs-border-color);
+  align-items: center;
+}
+.contactItem:last-child {
+  border-bottom: none;
+}
+.contactHeader {
+  font-weight: 600;
+  color: var(--bs-gray-700);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  background-color: var(--bs-gray-100);
+}
+.contactName {
+  font-weight: 500;
+  color: var(--bs-gray-900);
+}
+.contactInfo {
+  font-size: 0.9rem;
+  color: var(--bs-gray-700);
+}
+/* ---------------------------------------------------- */

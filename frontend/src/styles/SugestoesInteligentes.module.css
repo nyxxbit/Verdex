@@ -1,0 +1,82 @@
+/* src/styles/SugestoesInteligentes.module.css */
+.container {
+  background-color: var(--bs-gray-100);
+  border: 1px solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius-lg);
+  padding: 1rem;
+  margin-top: 1rem;
+}
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.header h3 {
+  color: var(--bs-gray-900);
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sugestaoItem {
+  background: var(--bs-white);
+  border-radius: var(--bs-border-radius);
+  padding: 1rem;
+  border-left: 3px solid var(--bs-primary);
+}
+.sugestaoItem:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+.sugestaoHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.categoriaNome {
+  font-weight: 600;
+  color: var(--bs-gray-900);
+}
+.confiancaBadge {
+  background-color: var(--bs-gray-200);
+  color: var(--bs-gray-800);
+  padding: 4px 8px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.motivo {
+  margin: 0;
+  color: var(--bs-gray-700);
+  font-size: 0.875rem;
+}
+.acoesContainer {
+  display: flex;
+  gap: 8px;
+  margin-top: 1rem;
+}
+.btnAcao {
+  border: none;
+  padding: 6px 12px;
+  border-radius: var(--bs-border-radius);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: filter 0.2s ease;
+}
+.btnAcao:hover { filter: brightness(0.9); }
+.btnAcao.primary {
+  background-color: var(--bs-success);
+  color: white;
+}
+.btnAcao.secondary {
+  background-color: var(--bs-white);
+  color: var(--bs-gray-800);
+  border: 1px solid var(--bs-border-color);
+}
