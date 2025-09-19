@@ -67,21 +67,29 @@ router.get('/saldo-acumulado', async (req, res) => {
         data: { $gte: dataInicioDate, $lte: dataFimDate }
     }).sort({ data: 1 }).select('data valor tipo');
 
+    const transacoesPorDia = transacoesNoPeriodo.reduce((acc, t) => {
+        const dia = t.data.toISOString().split('T')[0];
+        if (!acc[dia]) {
+            acc[dia] = { valorPeriodo: 0, data: t.data };
+        }
+        acc[dia].valorPeriodo += t.valor;
+        return acc;
+    }, {});
+
+    const diasOrdenados = Object.keys(transacoesPorDia).sort();
+
     let saldoAcumulado = saldoInicialDoPeriodo;
-    const periodosMap = new Map();
-
-    for (const transacao of transacoesNoPeriodo) {
-        saldoAcumulado += transacao.valor;
-        const chave = transacao.data.toISOString().split('T')[0];
-        const diaAtual = periodosMap.get(chave) || {
-            periodo: chave, data: transacao.data, saldoAcumulado: 0, valorPeriodo: 0
+    const saldos = diasOrdenados.map(dia => {
+        const { valorPeriodo, data } = transacoesPorDia[dia];
+        saldoAcumulado += valorPeriodo;
+        return {
+            periodo: dia,
+            data,
+            valorPeriodo,
+            saldoAcumulado,
         };
-        diaAtual.saldoAcumulado = saldoAcumulado;
-        diaAtual.valorPeriodo += transacao.valor;
-        periodosMap.set(chave, diaAtual);
-    }
+    });
 
-    const saldos = Array.from(periodosMap.values()).sort((a, b) => a.data - b.data);
     const totalCreditos = transacoesNoPeriodo.filter(t => t.tipo === 'credito').reduce((sum, t) => sum + t.valor, 0);
     const totalDebitos = transacoesNoPeriodo.filter(t => t.tipo === 'debito').reduce((sum, t) => sum + Math.abs(t.valor), 0);
 
